@@ -46,3 +46,30 @@
 		.listen(5000, function() {
 		    console.log('服务器启动成功了，可以通过 http://127.0.0.1:3000/ 来进行访问');
 		})
+    
+## 简单使用 express
+
+1. 加载模块 `express` 
+	
+		const express = require('express');
+
+2. 创建服务器应用程序
+
+		const app = express();
+
+3. 配置路由
+
+		app.get('/', function(req, res) {
+			res.send('index');
+		});
+
+4. 绑定端口号，启动服务器
+
+		app.listen(3000, function() {
+			console.log('服务器启动成功了，可以通过 http://127.0.0.1:3000/ 来进行访问');
+		});
+
+### 提供静态资源服务
+	
+	//公开指定目录，可以直接通过 /public/xxx 的方式访问 public 目录中所有的资源
+	app.use('/public', express.static('./public'));
